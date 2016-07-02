@@ -13,16 +13,18 @@
 
 	sliderContainer.style.width = sliderWidth + "px";
 
-	sliderContainer.style.left = -100 + "%";
-	sliderContainer.classList.add("horizTranslate");
-	var makeSlide = setInterval(animation, 8000);
+	function init() {
 
+		sliderContainer.style.left = -100 + "%";
+		sliderContainer.classList.add("horizTranslate");
+		var makeSlide = setInterval(animation, 8000);
+	}
  
 	function animation() {
 
 		sliderContainer.style.left = parseInt(sliderContainer.style.left) + (-100) + "%";
-		sliderContainer.addEventListener("transitionend",resetLeft, false);
 		sliderContainer.classList.add("horizTranslate");
+		sliderContainer.addEventListener("transitionend",resetLeft, false);
 
 	};
 
@@ -48,6 +50,9 @@
 		// console.log("Działa reset");
 		// current++;
 	}
+
+
+	document.body.onload = init;
 		
 
 })();
